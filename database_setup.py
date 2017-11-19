@@ -5,3 +5,22 @@ from sqlalchemy import create_engine, func
 
 Base = declarative_base()
 
+class Media(Base):
+    __tablename__ = 'media'
+    id = Column(Integer, primary_key=True)
+    description = Column(String)
+    url=Column(String)
+    type_of_media=Column(String)
+    
+
+
+
+
+
+
+engine = create_engine('sqlite:///Data.db')
+Base.metadata.create_all(engine)
+Base.metadata.bind = engine
+
+DBSession = sessionmaker(bind=engine, autoflush=False)
+session = DBSession()

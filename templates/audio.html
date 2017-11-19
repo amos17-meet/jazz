@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
+<body>
+
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+   
 
 
 
-    <title>Video age</title>
+    <title>Audio Page </title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="static/bootstrap.css" rel="stylesheet">
+   <link href="static/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="static/full-slider.css" rel="stylesheet">
@@ -37,7 +38,7 @@
         <a class="navbar-brand" href="#">Start Bootstrap</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>"fa fa-bars"></i>
+        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -47,12 +48,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('gallery_page') }}">Gallery</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ url_for('video_page') }}">Videos</a>
-              <span class="sr-only">(current)</span>
-            </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('video_page') }}">Videos</a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="{{ url_for('audio_page') }}">Audio</a>
+              <span class="sr-only">(current)</span>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('contact_page') }}">Contact Us</a>
@@ -67,10 +68,13 @@
 <br>
 <br>
 <br>
-
-    <video width="320" height="240" controls>
-                <source src="static/video.webm" type="video/mp4">
-
+<audio controls autoplay loop controlsList="nodownload">
+  <source src="static/song.mp3" type="audio/ogg">
+  
+</audio>
+<!--
+<embed name="GoodEnough" src="static/song.mp3" loop="infitity" hidden="false" autostart="true">
+-->
 
  <script src="static/jquery.min.js"></script>
     <script src="static/bootstrap.bundle.min.js"></script>
@@ -89,3 +93,4 @@
   <script src="static/bootstrap.min.css"></script>
 
 </body>
+</html>
