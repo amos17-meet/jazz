@@ -1,7 +1,7 @@
 from flask import Flask, url_for, flash, redirect, request, render_template, session as login_session
 
 from database_setup import *
-
+import os
 app = Flask(__name__)
 app.secret_key = "jazz"
 
@@ -9,6 +9,8 @@ engine = create_engine('sqlite:///Data.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine, autoflush=False)
 session = DBSession()
+
+
 
 
 @app.route('/')
@@ -28,8 +30,21 @@ def audio_page():
 @app.route('/gallery')
 def gallery_page():
 	photos=session.query(Media).filter_by(type_of_media="photo").all()
-	print(photos)
-	return render_template('gallery.html', photos=photos)
+	for photo in photos:
+		print(photo.url)
+	url_of_photos=[]
+
+	indir = 'static/vintjazz-photos'
+	for root, dirs, filenames in os.walk(indir):
+		for f in filenames:
+			print(f)
+			print(type(f))
+			url_of_photos.append("static/vintjazz-photos/"+f)
+			print(url_of_photos[-1])
+
+
+
+	return render_template('gallery.html', url_of_photos=url_of_photos)
 
 
 @app.route('/contact')
